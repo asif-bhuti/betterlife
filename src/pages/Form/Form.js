@@ -13,7 +13,7 @@ export const Form = () => {
     <Container>
       <ContainerNeu>
         <form>
-          <Text className="tittle">Sign In</Text>
+          <Text className="title">Sign Up</Text>
           <label htmlFor="">
             <Text>Name :</Text>
           </label>

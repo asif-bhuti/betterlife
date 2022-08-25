@@ -6,14 +6,14 @@ export const Patient = () => {
   return (
     <Container>
       <ContainerNeu>
-        <Text className="tittle">Username</Text>
+        <Text className="title">Username</Text>
         <Text>Address : Jana nai apatot</Text>
         <Text>Phone No : 01x-xxx-xxx-xx </Text>
         <Text>Sex : (Fe)Male</Text>
         <Text>Blood Group : H+</Text>
       </ContainerNeu>
       <ContainerNeu>
-        <Text className="tittle">Medical Report : </Text>
+        <Text className="title">Medical Report : </Text>
         <Text>
           Haga hoyna 3din dhore. GF bhat khay na dekhe amio khainai 3din raag
           kore. pore dekhi oy thiki khaise kintu amare janay nai. ekhon loss ta
@@ -22,7 +22,7 @@ export const Patient = () => {
       </ContainerNeu>
       <ContainerNeu>
         <form action="">
-          <Text className="tittle">Make An Appointment </Text>
+          <Text className="title">Make An Appointment </Text>
           <Text>Select Consultant :</Text>
           <Text>Speciality</Text>
           <Select>
@@ -34,7 +34,7 @@ export const Patient = () => {
             <option value="4">Neurologist</option>
           </Select>
           <StyledFlex></StyledFlex>
-          <Text>Tittle</Text>
+          <Text>title</Text>
           <Select>
             <option value="1" disabled>
               Title :

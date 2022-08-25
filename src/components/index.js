@@ -4,4 +4,3 @@ export { ContainerNeu } from "./ContainerNeu/ContainerNeu";
 export { Navbar } from "./Navbar/Nav";
 export { Text } from "./Text/Text";
 export { InputField } from "./InputField/InputField";
-export { FieldSet } from "./FieldSet/FieldSet";

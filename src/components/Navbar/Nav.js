@@ -55,10 +55,7 @@ export const Navbar = () => {
                 <NavLink to="/services">Services</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink to="/experts">Experts</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink to="/about-us">About Us</NavLink>
+                <NavLink to="/sign-up">Find A Doctor</NavLink>
               </NavItem>
               <NavItemBtn>
                 {button ? (

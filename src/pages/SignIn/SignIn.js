@@ -20,7 +20,7 @@ export const SignIn = () => {
     <Container>
       <ContainerNeu>
         <form action="">
-          <Text className="tittle">Sig In</Text>
+          <Text className="title">Sign In</Text>
           <Text>Username :</Text>
           <InputField type="name"></InputField>
           <Text>Password :</Text>

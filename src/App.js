@@ -2,7 +2,7 @@ import React from "react";
 import { Navbar } from "./components";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { GlobalStyle } from "./globalStyles";
-import { Home, Form, SignIn, Patient, Doctor } from "./pages";
+import { Home, Form, SignIn, Patient, Doctor, Services, Admin } from "./pages";
 
 function App() {
   return (
@@ -10,8 +10,7 @@ function App() {
       <GlobalStyle />
       <Navbar></Navbar>
       <Routes>
-        <Route path="/" exact element={<Patient />} />
-        <Route path="/experts" exact element={<Doctor />} />
+        <Route path="/" exact element={<Admin />} />
         <Route path="/sign-up" exact element={<Form />} />
         <Route path="/sign-in" exact element={<SignIn />} />
       </Routes>

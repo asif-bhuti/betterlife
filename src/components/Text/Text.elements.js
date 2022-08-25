@@ -8,7 +8,7 @@ export const StyledText = styled.p`
   color: ${Var.textColorNormal};
   margin: 10px 0 0 0;
 
-  &.tittle {
+  &.title {
     font-family: Nunito;
     font-size: 1.2rem;
     font-weight: 600;

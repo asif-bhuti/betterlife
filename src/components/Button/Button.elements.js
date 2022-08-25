@@ -5,6 +5,7 @@ export const StyledButton = styled.button`
   background: transparent;
   white-space: nowrap;
   padding: 4px 30px;
+  margin: 5px 10px;
   color: ${Var.textColorTitle};
   font-size: 18px;
   font-weight: 600;
@@ -16,7 +17,6 @@ export const StyledButton = styled.button`
   &.primary {
     background-color: ${Var.textColorTitle};
     color: ${Var.bgColor};
-    font-weight: 500;
     border: 2px solid ${Var.textColorTitle};
     &:hover {
       background-color: transparent;
