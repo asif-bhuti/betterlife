@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Text } from "../../components";
+import { Text, Card } from "../../components";
 
 export const LinkText = styled.p`
   color: blue;
@@ -10,3 +10,5 @@ export const LinkText = styled.p`
   }
   ${Text}
 `;
+
+export const StyledCard = styled(Card)``;

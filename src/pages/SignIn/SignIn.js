@@ -1,13 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  Container,
-  ContainerNeu,
-  Text,
-  InputField,
-  Button,
-} from "../../components";
-import { LinkText } from "./SiginIn.elements";
+import { Container, Card, Text, InputField, Button } from "../../components";
+import { LinkText, StyledCard } from "./SiginIn.elements";
 
 export const SignIn = () => {
   const navigate = useNavigate();
@@ -18,7 +12,7 @@ export const SignIn = () => {
 
   return (
     <Container>
-      <ContainerNeu>
+      <StyledCard>
         <form action="">
           <Text className="title">Sign In</Text>
           <Text>Username :</Text>
@@ -28,7 +22,7 @@ export const SignIn = () => {
           <Button className="primary">Sign In</Button>
           <LinkText onClick={handleNavigate}>Don't Have An Account?</LinkText>
         </form>
-      </ContainerNeu>
+      </StyledCard>
     </Container>
   );
 };

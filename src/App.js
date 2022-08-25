@@ -10,7 +10,8 @@ function App() {
       <GlobalStyle />
       <Navbar></Navbar>
       <Routes>
-        <Route path="/" exact element={<Admin />} />
+        <Route path="/" exact element={<Home />} />
+        <Route path="/services" exact element={<Doctor />} />
         <Route path="/sign-up" exact element={<Form />} />
         <Route path="/sign-in" exact element={<SignIn />} />
       </Routes>

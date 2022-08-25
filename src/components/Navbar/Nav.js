@@ -17,23 +17,8 @@ import {
 
 export const Navbar = () => {
   const [click, setClick] = useState(false);
-  const [button, setButton] = useState(true);
 
   const handleClick = () => setClick(!click);
-
-  const showButton = () => {
-    if (window.innerWidth <= 960) {
-      setButton(false);
-    } else {
-      setButton(true);
-    }
-  };
-
-  useEffect(() => {
-    showButton();
-  }, []);
-
-  window.addEventListener("resize", showButton);
 
   return (
     <>
@@ -57,26 +42,6 @@ export const Navbar = () => {
               <NavItem>
                 <NavLink to="/sign-up">Find A Doctor</NavLink>
               </NavItem>
-              <NavItemBtn>
-                {button ? (
-                  <NavBtnLink to="/sign-up">
-                    <Button className="primary"> Sign UP</Button>
-                  </NavBtnLink>
-                ) : (
-                  <NavBtnLink to="/sign-up">
-                    <Button className="primary">Sign Up</Button>
-                  </NavBtnLink>
-                )}
-                {button ? (
-                  <NavBtnLink to="/sign-in">
-                    <Button> Sign In</Button>
-                  </NavBtnLink>
-                ) : (
-                  <NavBtnLink to="/sign-in">
-                    <Button>Sign In </Button>
-                  </NavBtnLink>
-                )}
-              </NavItemBtn>
             </NavMenu>
           </NavbarContainer>
         </Nav>

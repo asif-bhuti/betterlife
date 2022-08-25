@@ -1,17 +1,15 @@
 import React from "react";
+import { Container, Text, InputField, Button } from "../../components";
 import {
-  Container,
-  ContainerNeu,
-  Text,
-  InputField,
-  Button,
-} from "../../components";
-import { StyledFieldSet as FieldSet, Select } from "./Form.elements";
+  StyledFieldSet as FieldSet,
+  Select,
+  StyledCard,
+} from "./Form.elements";
 
 export const Form = () => {
   return (
     <Container>
-      <ContainerNeu>
+      <StyledCard>
         <form>
           <Text className="title">Sign Up</Text>
           <label htmlFor="">
@@ -79,7 +77,7 @@ export const Form = () => {
 
           <Button className="primary">Sign Up</Button>
         </form>
-      </ContainerNeu>
+      </StyledCard>
     </Container>
   );
 };

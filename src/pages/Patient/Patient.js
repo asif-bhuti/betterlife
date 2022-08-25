@@ -1,26 +1,26 @@
 import React from "react";
-import { Container, ContainerNeu, Text, Button } from "../../components";
+import { Container, Card, Text, Button } from "../../components";
 import { Select, StyledFlex, StyledTextArea } from "./Patient.elements";
 
 export const Patient = () => {
   return (
     <Container>
-      <ContainerNeu>
+      <Card>
         <Text className="title">Username</Text>
         <Text>Address : Jana nai apatot</Text>
         <Text>Phone No : 01x-xxx-xxx-xx </Text>
         <Text>Sex : (Fe)Male</Text>
         <Text>Blood Group : H+</Text>
-      </ContainerNeu>
-      <ContainerNeu>
+      </Card>
+      <Card>
         <Text className="title">Medical Report : </Text>
         <Text>
           Haga hoyna 3din dhore. GF bhat khay na dekhe amio khainai 3din raag
           kore. pore dekhi oy thiki khaise kintu amare janay nai. ekhon loss ta
           kar holo? AMARI TOOO!!!!!
         </Text>
-      </ContainerNeu>
-      <ContainerNeu>
+      </Card>
+      <Card>
         <form action="">
           <Text className="title">Make An Appointment </Text>
           <Text>Select Consultant :</Text>
@@ -46,7 +46,7 @@ export const Patient = () => {
           <StyledTextArea placeholder="Give a brief description of your symptoms.."></StyledTextArea>
           <Button className="primary">Submit</Button>
         </form>
-      </ContainerNeu>
+      </Card>
     </Container>
   );
 };
