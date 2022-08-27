@@ -2,6 +2,7 @@ import React from "react";
 import { Text } from "../Text/Text";
 import {
   AdminInfo,
+  DropDown,
   Icon,
   ItemLink,
   List,
@@ -22,37 +23,30 @@ export const Sidebar = () => {
             <Text>Admin Name</Text>
             <Text className="small">Admin ID</Text>
           </AdminInfo>
-          <Icon className="bx bx-menu btn"></Icon>
         </Logo>
-        <MenuItem>
-          <List>
-            <li>
-              <ItemLink>
-                <Icon className="bx bx-grid-alt"></Icon>
-                <MenuItem>Dashboard</MenuItem>
-              </ItemLink>
-            </li>
-            <li>
-              <ItemLink>
-                <Icon className="bx bx-grid-alt"></Icon>
-                <MenuItem>Dashboard</MenuItem>
-              </ItemLink>
-            </li>
-            <li>
-              <ItemLink>
-                <Icon className="bx bx-grid-alt"></Icon>
-                <MenuItem>Dashboard</MenuItem>
-              </ItemLink>
-            </li>
-            <li>
-              <ItemLink>
-                <Icon className="bx bx-grid-alt"></Icon>
-                <MenuItem>Dashboard</MenuItem>
-              </ItemLink>
-            </li>
-          </List>
-        </MenuItem>
+        <Icon className="bx bx-menu btn"></Icon>
       </LogoContent>
+      <List>
+        <li>
+          <ItemLink>
+            <Icon className="bx bx-grid-alt"></Icon>
+            <MenuItem to="/dashboard">Dashboard</MenuItem>
+          </ItemLink>
+        </li>
+
+        <li>
+          <ItemLink to="/patient">
+            <Icon className="bx bx-user-pin"></Icon>
+            <MenuItem>Patient</MenuItem>
+          </ItemLink>
+        </li>
+        <li>
+          <ItemLink to="/doctor">
+            <Icon className="bx bx-user-pin"></Icon>
+            <MenuItem>Doctor</MenuItem>
+          </ItemLink>
+        </li>
+      </List>
     </SideBar>
   );
 };
