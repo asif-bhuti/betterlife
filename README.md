@@ -69,4 +69,16 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-tried making some edit to this
+### `npm install styled-components`
+
+**Note: to install styled-components for styling react components**
+
+look Styled-components Docs for more infos.
+
+### `npm install react-router-dom`
+
+**Note: Incase it throws an error for router**
+
+### `npm install react-icons`
+
+**Note: For react icons.**
