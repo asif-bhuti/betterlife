@@ -4,3 +4,4 @@ export { Card } from "./Card/Card";
 export { Navbar } from "./Navbar/Nav";
 export { Text } from "./Text/Text";
 export { InputField } from "./InputField/InputField";
+export { Sidebar } from "./Sidebar/Sidebar";

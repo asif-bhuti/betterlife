@@ -6,12 +6,15 @@ export const StyledText = styled.p`
   font-size: 1rem;
   font-weight: 400;
   color: ${Var.textColorNormal};
-  margin: 10px 0 0 0;
+  margin: 1px 0 0 0;
 
   &.title {
     font-family: Nunito;
     font-size: 1.2rem;
     font-weight: 600;
     color: ${Var.textColorTitle};
+  }
+  &.small {
+    font-size: 0.9rem;
   }
 `;
