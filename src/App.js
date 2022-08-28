@@ -11,6 +11,7 @@ function App() {
       <Navbar></Navbar>
       <Routes>
         <Route path="/" exact element={<Admin />} />
+        <Route path="/patient" exact element={<Patient />} />
         <Route path="/services" exact element={<Doctor />} />
         <Route path="/sign-up" exact element={<Form />} />
         <Route path="/sign-in" exact element={<SignIn />} />

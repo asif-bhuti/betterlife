@@ -1,3 +1,5 @@
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { React, useState } from "react";
 import { Container, Text, InputField, Button } from "../../components";
 import {
@@ -7,6 +9,7 @@ import {
 } from "./Form.elements";
 
 export const Form = () => {
+  const navigate = useNavigate();
   const [data, setData] = useState({
     name: "",
     password: "",
@@ -31,7 +34,16 @@ export const Form = () => {
       permanentAddress: data.permanentAddress,
     };
 
-    console.log(formData);
+    axios
+      .post("http://localhost/betterlife/form/formData.php", formData)
+      .then((result) => {
+        if (result.data.Status == "invalid") {
+          alert("invalid user.");
+        } else {
+          console.log("submission successful");
+          navigate("/patient");
+        }
+      });
   };
 
   return (
