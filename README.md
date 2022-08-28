@@ -83,6 +83,8 @@ look Styled-components Docs for more infos.
 
 **Note: For react icons.**
 
-### How to execute file outside of the localhost
+### `How to execute file outside of the localhost`
 
 **https://www.youtube.com/watch?v=GHgEi-ygJ7o**
+
+### `It is advised to create the database named FORM using xammp in the server to avoid further complications`
