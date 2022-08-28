@@ -82,3 +82,7 @@ look Styled-components Docs for more infos.
 ### `npm install react-icons`
 
 **Note: For react icons.**
+
+### How to execute file outside of the localhost
+
+**https://www.youtube.com/watch?v=GHgEi-ygJ7o**

@@ -24,7 +24,6 @@ export const Sidebar = () => {
             <Text className="small">Admin ID</Text>
           </AdminInfo>
         </Logo>
-        <Icon className="bx bx-menu btn"></Icon>
       </LogoContent>
       <List>
         <li>
