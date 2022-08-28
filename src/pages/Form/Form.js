@@ -35,9 +35,9 @@ export const Form = () => {
     };
 
     axios
-      .post("http://localhost/betterlife/form/formData.php", formData)
+      .post("http://localhost/betterlife/index.php", formData)
       .then((result) => {
-        if (result.data.Status == "invalid") {
+        if (result.data.Status === "invalid") {
           alert("invalid user.");
         } else {
           console.log("submission successful");

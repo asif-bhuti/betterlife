@@ -2,17 +2,48 @@
  header('Access-Control-Allow-Origin: *');
  header("Access-Control-Allow-Headers: access");
  header("Access-Control-Allow-Methods: POST");
- header("Content-Type: application/Json;charset=UTF-8");
+ header("Access-Control-Allow-Headers: X-Requested-With");
  header("Access-Control-Allow-Headers: Content-Type,Access-Control-Allow-Headers, Authorization, X-Requested-With");
- echo "Testing";
 
-$mysqli = mysqli_connect("localhost","root","","betterlife");
+ echo "Ello";
 
-if ($mysqli -> connect_errno) {
+ $data = json_decode(file_get_contents("php://input"));
+var_dump($data);
+
+ $name = $data->name;
+ $pass = $data->password;
+ $email = $data->email;
+ $tel = $data->tel;
+ $presentAdd = $data->presentAddress;
+ $permanentAdd = $data->permanentAddress;
+
+$conn = mysqli_connect("localhost","root","","betterlife");
+
+
+
+
+
+
+if ($conn -> connect_errno) {
     echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
     exit();
   }
 
   
-$mysqli -> query("CREATE TABLE `form` (`name` VARCHAR(25) NOT NULL , `password` VARCHAR(25) NOT NULL , `birthday` DATE NOT NULL , `gender` BOOLEAN NOT NULL , `blood_group` CHAR(3) NOT NULL , `e_mail` VARCHAR(25) NOT NULL , `tel` INT(16) NOT NULL , `presentAdd` VARCHAR(100) NOT NULL , `permanentAdd` VARCHAR(100) NOT NULL , `patient_ID` INT NOT NULL AUTO_INCREMENT, PRIMARY KEY (`patient_ID`))ENGINE = InnoDB;");
+//$insert = "INSERT INTO `form` (`name`, `password`, `birthday`, `gender`, `blood_group`, `e_mail`, `tel`, `presentAdd`, `permanentAdd`, `patient_ID`) VALUES ('$name', '$pass', 'birthDate', '1', 'A-', '$email', '$tel', '$presentAdd', '$permanentAdd', NULL);";
+
+$conn->query("INSERT INTO `form` (`name`, `password`, `birthday`, `gender`, `blood_group`, `e_mail`, `tel`, `presentAdd`, `permanentAdd`, `patient_ID`) VALUES ('$name', '$pass', 'birthDate', '1', 'A-', '$email', '$tel', '$presentAdd', '$permanentAdd', NULL);");
+
+// if ($conn->query($insert) === TRUE and $data->name!=NULL) {
+//   echo "New record created successfully";
+// } else {
+//   echo "Error: " . $insert . "<br>" . $conn->error;
+// }
+
+
+
+
+
+$conn->close()
+
 ?>
