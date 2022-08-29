@@ -33,7 +33,7 @@ export const Form = () => {
       presentAddress: data.presentAddress,
       permanentAddress: data.permanentAddress,
     };
-
+    console.log(formData)
     axios
       .post("http://localhost/betterlife/form/formData.php", formData)
       .then((result) => {
