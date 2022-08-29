@@ -30,15 +30,13 @@ if ($conn -> connect_errno) {
   }
 
   
-//$insert = "INSERT INTO `form` (`name`, `password`, `birthday`, `gender`, `blood_group`, `e_mail`, `tel`, `presentAdd`, `permanentAdd`, `patient_ID`) VALUES ('$name', '$pass', 'birthDate', '1', 'A-', '$email', '$tel', '$presentAdd', '$permanentAdd', NULL);";
+$insert = "INSERT INTO `form` (`name`, `password`, `birthday`, `gender`, `blood_group`, `e_mail`, `tel`, `presentAdd`, `permanentAdd`, `patient_ID`) VALUES ('$name', '$pass', 'birthDate', '1', 'A-', '$email', '$tel', '$presentAdd', '$permanentAdd', NULL);";
 
-$conn->query("INSERT INTO `form` (`name`, `password`, `birthday`, `gender`, `blood_group`, `e_mail`, `tel`, `presentAdd`, `permanentAdd`, `patient_ID`) VALUES ('$name', '$pass', 'birthDate', '1', 'A-', '$email', '$tel', '$presentAdd', '$permanentAdd', NULL);");
-
-// if ($conn->query($insert) === TRUE and $data->name!=NULL) {
-//   echo "New record created successfully";
-// } else {
-//   echo "Error: " . $insert . "<br>" . $conn->error;
-// }
+if ($conn->query($insert) === TRUE and $data->name!=NULL) {
+  echo "New record created successfully";
+} else {
+  echo "Error: " . $insert . "<br>" . $conn->error;
+}
 
 
 

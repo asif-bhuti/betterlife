@@ -13,6 +13,9 @@ export const Form = () => {
   const [data, setData] = useState({
     name: "",
     password: "",
+    date: "",
+    gender: "",
+    blood: "",
     email: "",
     tel: "",
     presentAddress: "",
@@ -28,6 +31,9 @@ export const Form = () => {
     const formData = {
       name: data.name,
       password: data.password,
+      date: data.date,
+      gender: data.gender,
+      blood: data.blood,
       email: data.email,
       tel: data.tel,
       presentAddress: data.presentAddress,
@@ -35,7 +41,7 @@ export const Form = () => {
     };
 
     axios
-      .post("http://localhost/betterlife/index.php", formData)
+      .post("http://localhost/betterlife/submit.php", formData)
       .then((result) => {
         if (result.data.Status === "invalid") {
           alert("invalid user.");
@@ -72,39 +78,59 @@ export const Form = () => {
           <label htmlFor="">
             <Text>Birthday :</Text>
           </label>
-          <InputField type="date" />
+          <InputField
+            type="date"
+            name="date"
+            onChange={handleSubmit}
+            value={data.date}
+          />
           <FieldSet>
             <legend>
               <Text>Gender :</Text>
             </legend>
             <label htmlFor="">
-              <input type="radio" name="gender" />
+              <input
+                type="radio"
+                name="gender"
+                onChange={handleSubmit}
+                value={data.gender}
+              />
               <Text>Male</Text>
             </label>
             <label htmlFor="">
-              <input type="radio" name="gender" />
+              <input
+                type="radio"
+                name="gender"
+                onChange={handleSubmit}
+                value={data.gender}
+              />
               <Text>Female</Text>
             </label>
             <label htmlFor="">
-              <input type="radio" name="gender" />
+              <input
+                type="radio"
+                name="gender"
+                onChange={handleSubmit}
+                value={data.gender}
+              />
               <Text>Others</Text>
             </label>
           </FieldSet>
           <label htmlFor="">
             <Text>Select Blood Group :</Text>
           </label>
-          <Select>
+          <Select name="blood" onChange={handleSubmit} value={data.blood}>
             <option value="1" disabled>
               Select Blood Group
             </option>
-            <option value="2">A+</option>
-            <option value="3">B+</option>
-            <option value="4">O+</option>
-            <option value="5">AB+</option>
-            <option value="6">A-</option>
-            <option value="7">B-</option>
-            <option value="8">O-</option>
-            <option value="9">AB-</option>
+            <option value="A+">A+</option>
+            <option value="B+">B+</option>
+            <option value="O+">O+</option>
+            <option value="AB+">AB+</option>
+            <option value="A-">A-</option>
+            <option value="B-">B-</option>
+            <option value="O-">O-</option>
+            <option value="AB_">AB-</option>
           </Select>
 
           <label htmlFor="">
