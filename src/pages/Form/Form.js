@@ -10,7 +10,6 @@ import {
 } from "./Form.elements";
 
 export const Form = () => {
-  const { setpatient, setform } = useContext(LoginContext);
   const navigate = useNavigate();
   const [data, setData] = useState({
     name: "",
@@ -41,9 +40,6 @@ export const Form = () => {
     };
 
     console.log(formData);
-    setpatient(data);
-
-    setform(true);
 
     axios.post("http://localhost/betterlife/", formData).then((result) => {
       if (result.data.Status === "invalid") {
