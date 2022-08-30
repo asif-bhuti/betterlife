@@ -8,27 +8,20 @@ export const Patient = () => {
 
   return (
     <Container>
-      {!form ? (
-        <h1>Came from form</h1>
-      ) : (
-        user.map((element) => (
-          <Card>
-            <Text className="title">{element.name}</Text>
-            <Text>Patient ID : </Text>
-            <Text className="small">Birthday : {element.birthday}</Text>
-            <Text className="small">Phone No : {element.tel} </Text>
-            <Text className="small">E-mail : {element.e_mail} </Text>
-            <Text className="small">Sex : {element.gender}</Text>
-            <Text className="small">Blood Group : {element.blood_group}</Text>
-            <Text className="small">
-              Present Address : {element.presenttAdd}
-            </Text>
-            <Text className="small">
-              Permanent Address : {element.permanentAdd}
-            </Text>
-          </Card>
-        ))
-      )}
+      {user.map((element) => (
+        <Card>
+          <Text className="title">{element.name}</Text>
+          <Text className="small">Birthday : {element.birthday}</Text>
+          <Text className="small">Phone No : {element.tel} </Text>
+          <Text className="small">E-mail : {element.e_mail} </Text>
+          <Text className="small">Sex : {element.gender}</Text>
+          <Text className="small">Blood Group : {element.blood_group}</Text>
+          <Text className="small">Present Address : {element.presenttAdd}</Text>
+          <Text className="small">
+            Permanent Address : {element.permanentAdd}
+          </Text>
+        </Card>
+      ))}
       <Card>
         <Text className="title">Medical Report : </Text>
         <Text>
