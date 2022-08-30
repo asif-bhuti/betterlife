@@ -5,7 +5,7 @@ session_start();
 include('config.php');
 
 //Login progess start, if user press the signin button
-if (isset($_POST['PatsignIn'])) {
+if (isset($_POST['DocsignIn'])) {
   if (empty($_POST['email']) || empty($_POST['password'])) {
     echo '<script>alert("Username & Password should not be empty")</script>';
   } else {
@@ -13,7 +13,7 @@ if (isset($_POST['PatsignIn'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $sql = "SELECT PatID, Email, Password from patient";
+    $sql = "SELECT DocID, Email, Password from doctors";
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
@@ -21,19 +21,17 @@ if (isset($_POST['PatsignIn'])) {
       while($row = mysqli_fetch_assoc($result)) {
         if ($email == $row["Email"] && $password == $row["Password"])
         {
-          $pageStore = "Patient Panel page"; //change this to patient panel page file path
-          $_SESSION["currentuser"] = $row["PatID"];
+          $pageStore = "Doctor Panel page"; //change this to Doctor panel page file path
+          $_SESSION["currentuser"] = $row["DocID"];
           header("location: $pageStore");
         }
         // echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
       }
     }
-<<<<<<< HEAD
-=======
 
     echo "Invalid Username & Password";
     session_abort();
-    header("location: Patient login page"); //change this to patient login page file path
+    header("location: Doctor login page"); //change this to doctor login page file path
 
     // $sQuery = "SELECT PatId, password from patient where email=? LIMIT 1";
 
@@ -62,7 +60,6 @@ if (isset($_POST['PatsignIn'])) {
     // $stmt->close();
     // $conn->close(); // Closing database Connection
 
->>>>>>> 14c00e04d3c31e15749896fad27f37481f5d9fd5
     mysqli_close($conn);
   }
 }

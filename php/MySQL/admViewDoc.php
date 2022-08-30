@@ -21,7 +21,7 @@ if (mysqli_num_rows($result) > 0) {
     "Branch: ". $row['Location']. "</td>";
   }
 } else {
-  echo "0 results";
+  echo "No Doctors Found.";
 }
 
 mysqli_close($conn);
