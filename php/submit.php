@@ -38,6 +38,7 @@ if ($conn->query($insert) === TRUE and $data->name!=NULL) {
   echo "New record created successfully<br/>";
 } else {
   echo "Error: " . $insert . "<br>" . $conn->error;
+  echo "<alert>Please enter username.</alert>";
 }
 
 

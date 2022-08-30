@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { React, useState } from "react";
+import { React, useState, useContext } from "react";
 import { Container, Text, InputField, Button } from "../../components";
+import { LoginContext } from "../../Context/LoginContext";
 import {
   StyledFieldSet as FieldSet,
   Select,
@@ -9,6 +10,7 @@ import {
 } from "./Form.elements";
 
 export const Form = () => {
+  const { setpatient, setform } = useContext(LoginContext);
   const navigate = useNavigate();
   const [data, setData] = useState({
     name: "",
@@ -21,12 +23,10 @@ export const Form = () => {
     presentAddress: "",
     permanentAddress: "",
   });
-
   const handleSubmit = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
-
-  const submitForm = (e) => {
+  const submitForm = async (e) => {
     e.preventDefault();
     const formData = {
       name: data.name,
@@ -39,17 +39,19 @@ export const Form = () => {
       presentAddress: data.presentAddress,
       permanentAddress: data.permanentAddress,
     };
-    console.log(formData)
-    axios
-      .post("http://localhost/betterlife/submit.php", formData)
-      .then((result) => {
-        if (result.data.Status === "invalid") {
-          alert("invalid user.");
-        } else {
-          console.log("submission successful");
-          navigate("/patient");
-        }
-      });
+
+    console.log(formData);
+    setpatient(data);
+
+    setform(true);
+
+    axios.post("http://localhost/betterlife/", formData).then((result) => {
+      if (result.data.Status === "invalid") {
+        alert("invalid user.");
+      } else {
+        console.log("submission successful");
+      }
+    });
   };
 
   return (
