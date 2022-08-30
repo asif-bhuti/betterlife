@@ -17,11 +17,6 @@ if (isset($_POST['AddDoc'])) {
         $address = $_POST['address'];
         $DOB = $_POST['DateOfBirth'];
         $password = $_POST['password'];
-        // $hash = password_hash($password, PASSWORD_DEFAULT);
-
-
-        // $sQuery = "SELECT PatId from patient where email=? LIMIT 1";
-        // $iQuery = "INSERT Into patient (PatName, Sex, DOB, Phone, Email, Address, BloodGroup, Password) values(?, ?, ?, ?, ?, ?, ?, ?)";
 
         $iQuery = "INSERT Into doctor (DocID, DocName, Sex, DOB, Phone, Email, Address, Specialty, BranchID, AdminID, Password) values('$fullName', '$gender', '$DOB', '$phone', '$email', '$address', '$specialty', '$branchID', '$adminID', '$password')";
         if (mysqli_query($conn, $iQuery)) {

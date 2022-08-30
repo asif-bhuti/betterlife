@@ -1,6 +1,5 @@
 import { React, useState } from "react";
 import { Patient } from "../Patient/Patient";
-import { SignIn } from "../SignIn/SignIn";
 import { Form } from "../Form/Form";
 import { LoginContext } from "../../Context/LoginContext";
 
@@ -13,7 +12,7 @@ export const Profile = () => {
   return (
     <div>
       <LoginContext.Provider value={{ user, setshowPanel, setuser, setform }}>
-        {showPanel ? form ? <Patient /> : <Form /> : <SignIn />}
+        {showPanel ? form ? <Patient /> : <Form /> : "<SignIn />"}
       </LoginContext.Provider>
     </div>
   );

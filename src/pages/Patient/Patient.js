@@ -1,58 +1,104 @@
-import { React, useContext } from "react";
-import { Container, Card, Text, Button } from "../../components";
+import { React, useContext, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { Container, Card, Text, Button, InputField } from "../../components";
 import { Select, StyledFlex, StyledTextArea } from "./Patient.elements";
 import { LoginContext } from "../../Context/LoginContext";
 
 export const Patient = () => {
-  const { user, form } = useContext(LoginContext);
+  const navigate = useNavigate();
+  const { user } = useContext(LoginContext);
+  const [data, setData] = useState({
+    date: "",
+  });
+
+  const handleSubmit = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
+  const [doc, setdoc] = useState([]);
+
+  const submitForm = async (e) => {
+    e.preventDefault();
+    const consultData = {
+      pat_ID: user.map((element) => element.PatID),
+      doc_ID: doc.map((element) => element.DocID),
+      consult_time: data.date,
+    };
+
+    console.log(consultData.doc_ID);
+
+    axios
+      .post("http://localhost/betterlife/consultInfo.php", consultData)
+      .then((result) => {
+        if (result.data.Status === "invalid") {
+          alert("invalid user.");
+        } else {
+          console.log("submission successful");
+          navigate("/submissionSuccessful");
+        }
+      });
+  };
+
+  useEffect(() => {
+    axios
+      .get("http://localhost/betterlife/getDocInfo.php")
+      .then(function (response) {
+        setdoc(response.data);
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+      .then(function () {
+        // always executed
+      });
+  }, []);
 
   return (
     <Container>
       {user.map((element) => (
         <Card>
-          <Text className="title">{element.name}</Text>
-          <Text className="small">Birthday : {element.birthday}</Text>
-          <Text className="small">Phone No : {element.tel} </Text>
-          <Text className="small">E-mail : {element.e_mail} </Text>
-          <Text className="small">Sex : {element.gender}</Text>
-          <Text className="small">Blood Group : {element.blood_group}</Text>
-          <Text className="small">Present Address : {element.presenttAdd}</Text>
+          <Text className="title">{element.PatName}</Text>
+          <Text className="small">Birthday : {element.DOB}</Text>
+          <Text className="small">Phone No : {element.Phone} </Text>
+          <Text className="small">E-mail : {element.Email} </Text>
+          <Text className="small">Sex : {element.Sex}</Text>
+          <Text className="small">Blood Group : {element.BloodGroup}</Text>
+          <Text className="small">Address : {element.Address}</Text>
           <Text className="small">
             Permanent Address : {element.permanentAdd}
+          </Text>
+
+          <Text className="title">Medical Report : </Text>
+          <Text>
+            {element.rep !== "" ? "No medical reports available." : element.rep}
           </Text>
         </Card>
       ))}
       <Card>
-        <Text className="title">Medical Report : </Text>
-        <Text>
-          Haga hoyna 3din dhore. GF bhat khay na dekhe amio khainai 3din raag
-          kore. pore dekhi oy thiki khaise kintu amare janay nai. ekhon loss ta
-          kar holo? AMARI TOOO!!!!!
-        </Text>
-      </Card>
-      <Card>
-        <form action="">
+        <form onSubmit={submitForm}>
           <Text className="title">Make An Appointment </Text>
           <Text>Select Consultant :</Text>
           <Text>Speciality</Text>
-          <Select>
-            <option value="1" disabled>
-              Specialist :
-            </option>
-            <option value="2">Child</option>
-            <option value="3">Gynochologist</option>
-            <option value="4">Neurologist</option>
-          </Select>
+          {doc.map((element) => (
+            <Select>
+              <option value="1" disabled>
+                Select Doctor :
+              </option>
+              <option value="2">
+                {element.DocName}, {element.Specialty}
+              </option>
+            </Select>
+          ))}
+
           <StyledFlex></StyledFlex>
-          <Text>title</Text>
-          <Select>
-            <option value="1" disabled>
-              Title :
-            </option>
-            <option value="2">Child</option>
-            <option value="3">Gynochologist</option>
-            <option value="4">Neurologist</option>
-          </Select>
+          <Text>Select Time :</Text>
+          <InputField
+            type="date"
+            name="date"
+            onChange={handleSubmit}
+            value={data.date}
+          />
           <StyledTextArea placeholder="Give a brief description of your symptoms.."></StyledTextArea>
           <Button className="primary">Submit</Button>
         </form>

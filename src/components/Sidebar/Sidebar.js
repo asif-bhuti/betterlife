@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useContext } from "react";
 import { Text } from "../Text/Text";
 import {
   AdminInfo,
@@ -11,18 +11,23 @@ import {
   MenuItem,
   SideBar,
 } from "./Sidebar.elements";
+import { LoginContext } from "../../Context/LoginContext";
 
 export const Sidebar = () => {
+  const { admin } = useContext(LoginContext);
+
   return (
     <SideBar>
       <LogoContent>
         <Logo>
           <Icon className="bx bx-user"></Icon>
-          <AdminInfo>
-            <Text className="title">Admin Panel</Text>
-            <Text>Admin Name</Text>
-            <Text className="small">Admin ID</Text>
-          </AdminInfo>
+          {admin.map((element) => (
+            <AdminInfo>
+              <Text className="title">Admin Panel</Text>
+              <Text>{element.AdminName}</Text>
+              <Text className="small">{element.AdminID}</Text>
+            </AdminInfo>
+          ))}
         </Logo>
       </LogoContent>
       <List>

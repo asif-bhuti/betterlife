@@ -1,7 +1,12 @@
 export { Home } from "./Home/Home";
 export { Form } from "./Form/Form";
-export { SignIn } from "./SignIn/SignIn";
 export { Patient } from "./Patient/Patient";
+export { PatientLog } from "./PatientLog/PatientLog";
+export { DoctorLog } from "./DoctorLog/DoctorLog";
+export { AdminLog } from "./AdminLog/AdminLog";
 export { Doctor } from "./Doctor/Doctor";
 export { Admin } from "./Admin/Admin";
 export { Profile } from "./Profile/Profile";
+export { LoginPage } from "./LoginPage/LoginPage";
+export { PatientInfo } from "./Admin/PatientInfo";
+export { DoctorInfo } from "./Admin/DoctorInfo";

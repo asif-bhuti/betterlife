@@ -2,24 +2,16 @@ import axios from "axios";
 import { React, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Container, Text, InputField, Button } from "../../components";
-import { LinkText, StyledCard } from "./SiginIn.elements";
+import { StyledCard } from "./DoctorLog.elements";
 import { LoginContext } from "../../Context/LoginContext";
-export const SignIn = () => {
+export const DoctorLog = () => {
   const navigate = useNavigate();
 
   const [data, setData] = useState({
     name: "",
-    password: "",
   });
 
-  const { setuser, setshowPanel } = useContext(LoginContext);
-
-  const navigateToSignUp = () => {
-    navigate("/sign-up");
-  };
-  const handleNavigate = () => {
-    navigate("/patient");
-  };
+  const { setdoctor, setshowdocpane } = useContext(LoginContext);
 
   const handleSubmit = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
@@ -29,19 +21,21 @@ export const SignIn = () => {
     e.preventDefault();
 
     axios
-      .get("http://localhost/betterlife/", {
+      .get("http://localhost/betterlife/getDoc.php", {
         params: {
           name: data.name,
         },
       })
       .then(function (response) {
-        setuser(response.data);
+        setdoctor(response.data);
         console.log(response.data);
+
+        navigate("/doctor");
 
         response.data.map((el) =>
           el.name === ""
             ? console.log("the array name was empty")
-            : setshowPanel(true)
+            : setshowdocpane(true)
         );
       })
       .catch(function (error) {
@@ -67,7 +61,6 @@ export const SignIn = () => {
           <Text>Password :</Text>
           <InputField type="password"></InputField>
           <Button className="primary">Sign In</Button>
-          <LinkText onClick={navigateToSignUp}>Don't Have An Account?</LinkText>
         </form>
       </StyledCard>
     </Container>

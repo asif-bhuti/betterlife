@@ -1,8 +1,7 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { React, useState, useContext } from "react";
+import { React, useState } from "react";
 import { Container, Text, InputField, Button } from "../../components";
-import { LoginContext } from "../../Context/LoginContext";
 import {
   StyledFieldSet as FieldSet,
   Select,
@@ -46,6 +45,7 @@ export const Form = () => {
         alert("invalid user.");
       } else {
         console.log("submission successful");
+        navigate("/log-in/patient");
       }
     });
   };
@@ -86,37 +86,19 @@ export const Form = () => {
             <legend>
               <Text>Gender :</Text>
             </legend>
-            <label htmlFor="">
-              <input
-                type="radio"
-                name="gender"
-                onChange={handleSubmit}
-                value={data.gender}
-              />
-              <Text>Male</Text>
-            </label>
-            <label htmlFor="">
-              <input
-                type="radio"
-                name="gender"
-                onChange={handleSubmit}
-                value={data.gender}
-              />
-              <Text>Female</Text>
-            </label>
-            <label htmlFor="">
-              <input
-                type="radio"
-                name="gender"
-                onChange={handleSubmit}
-                value={data.gender}
-              />
-              <Text>Others</Text>
-            </label>
+            <Select name="gender" onChange={handleSubmit} value={data.gender}>
+              <option value="1" disabled>
+                Gender
+              </option>
+              <option value="Male">Male</option>
+              <option value="Femal">Female</option>
+              <option value="Other">Other</option>
+            </Select>
           </FieldSet>
           <label htmlFor="">
             <Text>Select Blood Group :</Text>
           </label>
+
           <Select name="blood" onChange={handleSubmit} value={data.blood}>
             <option value="1" disabled>
               Select Blood Group
@@ -150,22 +132,13 @@ export const Form = () => {
             value={data.tel}
           />
           <label htmlFor="">
-            <Text>Present Address :</Text>
+            <Text>Address :</Text>
           </label>
           <InputField
             type="text"
             name="presentAddress"
             onChange={handleSubmit}
             value={data.presentAddress}
-          />
-          <label htmlFor="">
-            <Text>Permanent Address :</Text>
-          </label>
-          <InputField
-            type="text"
-            name="permanentAddress"
-            onChange={handleSubmit}
-            value={data.permanentAddress}
           />
 
           <Button

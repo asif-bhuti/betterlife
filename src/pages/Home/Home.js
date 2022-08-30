@@ -57,11 +57,11 @@ export const Home = () => {
             </BtnLink>
           )}
           {button ? (
-            <BtnLink to="/sign-in">
+            <BtnLink to="/log-in/patient">
               <Button> Sign In</Button>
             </BtnLink>
           ) : (
-            <BtnLink to="/sign-in">
+            <BtnLink to="/log-in/patient">
               <Button>Sign In </Button>
             </BtnLink>
           )}
