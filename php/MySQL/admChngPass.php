@@ -12,7 +12,7 @@ if (isset($_POST['admChngPass'])) {
         $oldPass = $_POST['oldPass'];
         $newPass = $_POST['newPass'];
 
-        $sql = "SELECT AdminID, Password FROM admin WHERE AdminID =". $_SESSION["currentUser"];
+        $sql = "SELECT AdminID, Password FROM admin WHERE AdminID =". $_SESSION["currentuser"];
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);
         if ($oldPass != $row['Password'])

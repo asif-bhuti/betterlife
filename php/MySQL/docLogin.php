@@ -5,7 +5,7 @@ session_start();
 include('config.php');
 
 //Login progess start, if user press the signin button
-if (isset($_POST['signIn'])) {
+if (isset($_POST['DocsignIn'])) {
   if (empty($_POST['email']) || empty($_POST['password'])) {
     echo '<script>alert("Username & Password should not be empty")</script>';
   } else {

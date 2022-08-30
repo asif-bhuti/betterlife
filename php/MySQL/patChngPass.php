@@ -12,7 +12,7 @@ if (isset($_POST['patChngPass'])) {
         $oldPass = $_POST['oldPass'];
         $newPass = $_POST['newPass'];
 
-        $sql = "SELECT PatID, Password FROM patient WHERE PatID =". $_SESSION["currentUser"];
+        $sql = "SELECT PatID, Password FROM patient WHERE PatID =". $_SESSION["currentuser"];
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);
         if ($oldPass != $row['Password'])
