@@ -22,7 +22,7 @@ if (isset($_POST['signUp'])) {
 
     $iQuery = "INSERT Into patient (PatName, Sex, DOB, Phone, Email, Address, BloodGroup, Password) values('$fullName', '$gender', '$DOB', '$phone', '$email', '$address', '$bGroup', '$password')";
     if (mysqli_query($conn, $iQuery)) {
-      echo "New record created successfully";
+      echo '<script>alert(New Patient account created successfully)</script>';
     } else {
       echo "Error: " . $iQuery . "<br>" . mysqli_error($conn);
     }

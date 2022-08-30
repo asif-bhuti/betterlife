@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 // Make a connection with MySQL server.
 include('config.php');
@@ -12,22 +13,25 @@ if (isset($_POST['signIn'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $sql = "SELECT email, password from patient";
+    $sql = "SELECT PatID, Email, Password from patient";
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
       // output data of each row
       while($row = mysqli_fetch_assoc($result)) {
-        if ($email == $row["email"] && $password == $row["password"])
+        if ($email == $row["Email"] && $password == $row["Password"])
         {
-          $pageStore = "patient_panel.php";
+          $pageStore = "Patient Panel page"; //change this to patient panel page file path
+          $_SESSION["currentuser"] = $row["PatID"];
           header("location: $pageStore");
         }
         // echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
       }
-    } else {
-      echo '<script>alert("Invalid Username & Password")</script>';
     }
+
+    echo "Invalid Username & Password";
+    session_abort();
+    header("location: Patient login page"); //change this to patient login page file path
 
     // $sQuery = "SELECT PatId, password from patient where email=? LIMIT 1";
 
